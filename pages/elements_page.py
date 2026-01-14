@@ -10,5 +10,9 @@ class ElementsPage(BasePage):
         super().__init__(driver, self.base_url)
 
         self.text2 = WebElement(driver, '#app > div > div > div.row > div.col-12.mt-4.col-md-6')
-
+        self.text_elements = WebElement(driver, locator='div.col-12:nth-child(2)')
+        self.icon = WebElement(driver, '#app > header > a > img')
+        self.btn_sidebar_first = WebElement(driver, 'div:nth-child(1) > span > div')
+        self.btn_sidebar_first_textbox = WebElement(driver, '#item-0 > span')
+        self.btn_sidebar_first_checkbox = WebElement(driver, '#item-1 > span')
 
