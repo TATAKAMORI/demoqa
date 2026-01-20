@@ -14,3 +14,5 @@ def test_text_box(browser):
     assert text_box_page.name2.get_text() == 'Name:text1'
     assert text_box_page.address2.get_text() == 'Current Address :text2'
 
+
+

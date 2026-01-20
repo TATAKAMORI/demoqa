@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
 class WebElement:
-    def __init__(self, driver, locator=''):
+    def __init__(self, driver, locator='', locator_type='css'):
         self.driver = driver
         self.locator = locator
-        self.locator_type = 'css'
+        self.locator_type = locator_type
 
     def click(self):
             self.find_element().click()
@@ -55,7 +55,7 @@ class WebElement:
         return True
 
     def scroll_to_element(self):
-        self.driver.execute_script("window_scrollTo(0, document.body.scrollHeight);", self.find_element())
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);", self.find_element())
 
     def get_by_type(self):
         if self.locator_type == 'id':
@@ -74,3 +74,5 @@ class WebElement:
             print('Locator type ' + self.locator_type + ' not correct')
         return False
 
+    def check_css(self, style, value=''):
+        return self.find_element().value_of_css_property(style) == value
