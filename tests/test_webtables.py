@@ -41,5 +41,4 @@ def test_web_tables(browser):
 
     assert page.btn_delete.exist()
     page.btn_delete.click()
-    time.sleep(1)
-
+    time.sleep(2)
