@@ -2,11 +2,15 @@ from selenium.common import NoAlertPresentException
 from selenium.webdriver.common.by import By
 import logging
 
+from components.components import WebElement
+
+
 class BasePage:
 
     def __init__(self, driver, base_url):
         self.driver = driver
         self.base_url = base_url
+        self.viewport = WebElement(driver, 'head > meta')
 
     def visit(self):
         return self.driver.get(self.base_url)
@@ -32,7 +36,7 @@ class BasePage:
         self.driver.refresh()
 
     def get_title(self):
-        self.driver.title
+        self.driver.title()
 
     def alert(self):
         try:
